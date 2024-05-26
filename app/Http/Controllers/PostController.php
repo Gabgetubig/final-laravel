@@ -16,6 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {        
+        $this->authorize('viewAny', Post::class);
         $posts = Post::where('user_id', Auth::user()->id)->get();
         return view('resources.post.index', ['posts' => $posts]);
     }
@@ -48,6 +49,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $this->authorize('view', $post);
         return view('resources.post.show', ['post' => $post]);
     }
 
@@ -56,6 +58,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('view', $post);
         return view('resources.post.edit', ['post' => $post]);
     }
 
@@ -64,6 +67,7 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {                
+        $this->authorize('view', $post);
         $post->update([
             'user_id' => Auth::user()->id,
             'subject' => $request->subject,
@@ -79,6 +83,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('view', $post);
         $post->delete();
         return redirect()->route('post.index')->with('message', 'Post Succesfully Deleted!');        
     }
