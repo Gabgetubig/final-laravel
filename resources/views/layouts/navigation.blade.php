@@ -13,8 +13,6 @@
                 <li>
                     <a href="{{ route('post.index') }}"> <i class="bi bi-circle"></i><span>Posts</span> </a>
                     <a href="{{ route('post.postIndex') }}"> <i class="bi bi-circle"></i><span>Publish</span> </a>
-                    
-                    
                 </li>
             </ul>
         </li>

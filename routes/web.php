@@ -26,11 +26,12 @@ Route::middleware('auth', 'verified')->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/post/postIndex', [PostController::class, 'postIndex'])->name('post.postIndex');
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/post/{post}', [PostController::class, 'postIndex'])->name('post.postIndex');
+    Route::get('/post/postIndex', [PostController::class, 'postIndex'])->name('post.postIndex');
+   
 
     // Route::get('/post', [PostController::class, 'index'])->name('post.index');
     // Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
