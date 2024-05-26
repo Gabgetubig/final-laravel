@@ -1,5 +1,4 @@
 <x-app-layout>
-    
 
     <div class="pagetitle">
         <h1>{{ __('Post') }}</h1>
